@@ -35,21 +35,24 @@ public class ProductCURD {
      public void viewProductById(){
          System.out.println("Enter product ID");
          int pid = sobj.nextInt();
+         int k=0;
          for(Product uObj :pobj )
          {
              if(uObj.getPid()==pid)
              {
                  System.out.println(" Display product  ID="+uObj.getPid()+"\n\t"+"Product Name="+uObj.getPname()+"\n\t" +
-                         ""+"Product Quantity="+uObj.getQat()+"\n\t"+"Product Price="+uObj.getPrice());}
-                 else
-                      { System.out.println("Enter Valid product ID for View Product");}
+                         ""+"Product Quantity="+uObj.getQat()+"\n\t"+"Product Price="+uObj.getPrice());
+             ++k;}}
+             if(k==0){
+                 System.out.println("Given record not exit");}
              }
-         }
+
 
 
     public void updateProduct(){
         System.out.print("Enter product ID for update=");
         int pid = sobj.nextInt();
+        int k=0;
         for(Product uObj :pobj )
         {
             if(uObj.getPid()==pid)
@@ -65,9 +68,10 @@ public class ProductCURD {
                 System.out.println("Update Successfully quantity and price");
                 System.out.println(" Product ID="+uObj.getPid()+"\n\t"+"Product Name="+uObj.getPname()+"\n\t" +
                         ""+"Product Quantity="+uObj.getQat()+"\n\t"+"Product Price="+uObj.getPrice());
+                ++k;
             }
-                else
-                System.out.println("Enter Valid product ID for Update");
+               if(k==0)
+               { System.out.println(" Given record not exit");}
         }
         }
        public void DeleteProduct()
