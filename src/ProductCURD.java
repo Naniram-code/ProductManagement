@@ -72,23 +72,25 @@ public class ProductCURD {
         }
        public void DeleteProduct()
        {
-        System.out.print("Enter product ID for Delete=");
-        int deleteID = sobj.nextInt();
-
-        for(int i=0;i<pobj.length;i++) {
+           System.out.print("Enter product ID for Delete=");
+           int deleteID = sobj.nextInt();
+           int k=0;
+           for(int i=0;i<pobj.length;i++) {
                if (pobj[i].getPid() == deleteID) {
-                   for (int j = i; j < pobj.length - 1; j++){
-                       pobj[j] = pobj[j + 1];}
-               }break;
+                  // pobj[i]=null;
+                   pobj[i].setPid(0);
+                   pobj[i].setPname(null);
+                   pobj[i].setQat(0);
+                   pobj[i].setPrice(0);
+                   System.out.println("Product Delete Successfully");
+                   ++k;
+               }}
+               if(k==0)
+                   System.out.println("Given record not exit");
            }
-           System.out.println("Display product after delete");
-           for (int i = 0; i <pobj.length-1; i++) {
+       }
 
-               System.out.println(" Product ID="+pobj[i].getPid()+"\n\t"+"Product Name="+pobj[i].getPname()+"\n\t" +
-                       ""+"Product Quantity="+pobj[i].getQat()+"\n\t"+"Product Price="+pobj[i].getPrice());
-           }
-           }
-    }
+
 
 
 
